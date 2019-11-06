@@ -1,0 +1,24 @@
+Package: brclib
+Type: Package
+Title: Person R Package of Matthew Gwynfryn Thomas for British Red Cross
+Version: 0.1.0
+Author: Matthew Gwynfryn Thomas
+Maintainer: Matthew Gwynfryn Thomas <mgt@matthewgthomas.co.uk>
+Description: Set of R functions used in British Red Cross data science work.
+License: MIT
+Encoding: UTF-8
+LazyData: true
+Imports:
+    tibble,
+    dplyr,
+    tidyr,
+    purrr,
+    readr,
+    readxl,
+    stringr,
+    jsonlite,
+    RCurl,
+    httr,
+    xml2,
+    rvest
+RoxygenNote: 6.1.1
