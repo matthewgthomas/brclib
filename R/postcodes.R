@@ -3,7 +3,7 @@
 #' @param postcode.path Where the postcodes file is stored
 #' @param postcode.name Name of the postcodes file
 #'
-#' @example
+#' @examples
 #' \dontrun{
 #' if (!exists("postcodes")) postcodes = load_postcodes()
 #' }
