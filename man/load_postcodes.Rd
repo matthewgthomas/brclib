@@ -16,9 +16,3 @@ load_postcodes(postcode.path = file.path(options("brclib.data_path"),
 \description{
 Load BRC's bespoke postcode directory
 }
-\examples{
-\dontrun{
-if (!exists("postcodes")) postcodes = load_postcodes()
-}
-
-}

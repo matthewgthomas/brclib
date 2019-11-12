@@ -20,7 +20,5 @@ Imports:
     RCurl,
     httr,
     xml2,
-    rvest,
-    Hmisc,
-    janitor
+    rvest
 RoxygenNote: 6.1.1
