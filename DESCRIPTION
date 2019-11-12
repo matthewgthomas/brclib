@@ -22,5 +22,6 @@ Imports:
     xml2,
     rvest,
     Hmisc,
-    janitor
+    janitor,
+    classInt
 RoxygenNote: 6.1.1
