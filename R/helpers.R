@@ -3,10 +3,16 @@
 ##
 
 #' Multiply numbers only if at least one of them isn't zero
+#'
 #' @param x First number
 #' @param y Second number
+#'
+#' @examples
+#' 10 %**% 2 # == 20
+#' 10 %**% 0 # == 10
+#'
 #' @export
-`%**%` = function(x, y) ifelse(x == 0, 1, x) * ifelse(y == 0, 1, y)
+`%**%` = function(x, y) ifelse(x == 0, 1, x) * ifelse(y == 0, 1, y)  # this is an 'infix' function
 
 #' Convert dates only when they're in Excel (numeric) format
 #' @param d The date
