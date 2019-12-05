@@ -4,8 +4,10 @@
 \alias{process_CRVs}
 \title{Clean and process Community Reserve Volunteers data}
 \usage{
-process_CRVs(vols.dir = file.path(options("brclib.data_path"),
-  "Volunteers"), vols.file.latest = "CRVs - latest.csv")
+process_CRVs(
+  vols.dir = file.path(options("brclib.data_path"), "Volunteers"),
+  vols.file.latest = "CRVs - latest.csv"
+)
 }
 \arguments{
 \item{vols.dir}{Path to volunteers data}

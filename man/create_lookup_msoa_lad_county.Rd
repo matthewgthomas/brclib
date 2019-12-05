@@ -4,11 +4,13 @@
 \alias{create_lookup_msoa_lad_county}
 \title{Create lookup table for Middle Layer Super Output Areas to Local Authorities to Counties}
 \usage{
-
-  create_lookup_msoa_lad_county(lookup.path = file.path(options("brclib.data_path"),
-  "Lookups, names and codes"),
-  msoa.lad.name = "Middle_Layer_Super_Output_Area_2011_to_Ward_to_LAD_December_2018_Lookup_in_England_and_Wales.csv",
-  lad.county.name = "Local_Authority_District_to_County_December_2018_Lookup_in_England.csv")
+create_lookup_msoa_lad_county(
+  lookup.path = file.path(options("brclib.data_path"), "Lookups, names and codes"),
+ 
+    msoa.lad.name = "Middle_Layer_Super_Output_Area_2011_to_Ward_to_LAD_December_2018_Lookup_in_England_and_Wales.csv",
+ 
+    lad.county.name = "Local_Authority_District_to_County_December_2018_Lookup_in_England.csv"
+)
 }
 \arguments{
 \item{lookup.path}{Path to the ONS's lookup tables}

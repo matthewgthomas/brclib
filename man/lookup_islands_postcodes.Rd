@@ -5,9 +5,11 @@
 \title{Lookup coordinates for UK postcodes that aren't in the ONS postcode directory (tends to be Guernsey, Jersey and Isle of Man), scraping them from https://checkmypostcode.uk/ where necessary.
 This function also saves the postcodes and coordinates into `islands_file` to prevent needless re-scraping in future.}
 \usage{
-lookup_islands_postcodes(islands_postcodes,
+lookup_islands_postcodes(
+  islands_postcodes,
   islands_path = file.path(options("brclib.data_path"), "Postcodes"),
-  islands_file = "UK Islands postcodes.csv")
+  islands_file = "UK Islands postcodes.csv"
+)
 }
 \arguments{
 \item{islands_postcodes}{A vector of postcodes to lookup. Note that these shouldn't contain spaces.}

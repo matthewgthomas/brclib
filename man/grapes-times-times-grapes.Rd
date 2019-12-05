@@ -14,3 +14,8 @@ x \%**\% y
 \description{
 Multiply numbers only if at least one of them isn't zero
 }
+\examples{
+10 \%**\% 2 # == 20
+10 \%**\% 0 # == 10
+
+}

@@ -4,9 +4,10 @@
 \alias{load_postcodes}
 \title{Load BRC's bespoke postcode directory}
 \usage{
-load_postcodes(postcode.path = file.path(options("brclib.data_path"),
-  "Postcodes"),
-  postcode.name = "National_Statistics_Postcode_Lookup - BRC.csv")
+load_postcodes(
+  postcode.path = file.path(options("brclib.data_path"), "Postcodes"),
+  postcode.name = "National_Statistics_Postcode_Lookup - BRC.csv"
+)
 }
 \arguments{
 \item{postcode.path}{Where the postcodes file is stored}

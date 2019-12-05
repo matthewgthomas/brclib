@@ -4,8 +4,14 @@
 \alias{add_risk_quantiles}
 \title{Add risk quantiles to a dataframe for the given column.}
 \usage{
-add_risk_quantiles(d, risk.col, output.col = risk.col, quants = 5,
-  style = "fisher")
+add_risk_quantiles(
+  d,
+  risk.col,
+  output.col = risk.col,
+  quants = 5,
+  style = "fisher",
+  samp_prop = 1
+)
 }
 \arguments{
 \item{d}{The data}
@@ -17,6 +23,8 @@ add_risk_quantiles(d, risk.col, output.col = risk.col, quants = 5,
 \item{quants}{Number of quantiles (default: 5)}
 
 \item{style}{Method to use for calculating quantiles (passed to classIntervals; default: Fisher). One of "fixed", "sd", "equal", "pretty", "quantile", "kmeans", "hclust", "bclust", "fisher", "jenks" or "dpih"}
+
+\item{samp_prop}{The proportion of samples to use, if slicing using "fisher" or "jenks" (passed to classIntervals; default: 100%)}
 }
 \value{
 A dataframe with two columns added: one for the risk quantile (output.col_q) and one containing labels for the risk quantile (output.col_q_name)
