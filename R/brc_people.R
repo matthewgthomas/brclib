@@ -7,6 +7,7 @@
 #' @param vols.dir Path to volunteers data
 #' @param vols.file.latest What to call the output file
 #'
+#' @importFrom magrittr "%>%"
 #' @export
 #'
 process_CRVs = function(vols.dir = file.path(options("brclib.data_path"), "Volunteers"),
@@ -47,9 +48,9 @@ process_CRVs = function(vols.dir = file.path(options("brclib.data_path"), "Volun
   ##
   # get subset of Channel Islands + IoM postcodes
   channel_new = vols %>%
-    select(Postcode2) %>%
-    filter(startsWith(Postcode2, "GY") | startsWith(Postcode2, "JE") | startsWith(Postcode2, "IM")) %>%
-    distinct()
+    dplyr::select(Postcode2) %>%
+    dplyr::filter(startsWith(Postcode2, "GY") | startsWith(Postcode2, "JE") | startsWith(Postcode2, "IM")) %>%
+    dplyr::distinct()
 
   # lookup
   channel = lookup_islands_postcodes(channel_new$Postcode2)
@@ -110,8 +111,8 @@ process_CRVs = function(vols.dir = file.path(options("brclib.data_path"), "Volun
   vols = vols %>%
     dplyr::select(-`First Name`, -`Last Name`, -`User Email`, -mobile_number, -date_of_birth, -medical_conditions, -emergency_contact_name, -emergency_contact_relationship, -emergency_contact_number)
 
-  dplyr::write_csv(vols, file.path(data.dir, vols.dir, vols.file.out))
-  dplyr::write_csv(vols, file.path(data.dir, vols.dir, vols.file.latest))  # save version saying 'latest'
+  readr::write_csv(vols, file.path(vols.dir, vols.file.out))
+  readr::write_csv(vols, file.path(vols.dir, vols.file.latest))  # save version saying 'latest'
 
   print("Finished cleaning and processing CRVs")
 }
