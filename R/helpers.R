@@ -42,3 +42,25 @@ as_pc = function(x) round(x * 100, 1)
 get_month_num = function(month, list.of.months = month.name) {
   match(month, list.of.months)
 }
+
+#' Round up to nearest specified number
+#' source: https://stackoverflow.com/a/6468532
+#'
+#' @param x Number to round up
+#' @param to Number to round to to
+#' @export
+round_up = function(x, to = 10)
+{
+  to*(x%/%to + as.logical(x%%to))
+}
+
+#' Round up to nearest 'nice' number
+#' source: https://stackoverflow.com/a/6463946
+#'
+#' @param x Number to round up
+#' @param nice Vector of 'nice' numbers (no need to change this)
+#' @export
+round_up_nice = function(x, nice = c(1,2,4,5,6,8,10)) {
+  if(length(x) != 1) stop("'x' must be of length 1")
+  10^floor(log10(x)) * nice[[which(x <= 10^floor(log10(x)) * nice)[[1]]]]
+}
