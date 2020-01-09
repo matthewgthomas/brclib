@@ -15,5 +15,8 @@ add_risk_quantiles = function(d, risk.col, output.col = risk.col, quants = 5, st
 
   d[[paste0(output.col, "_q")]]      = as.integer(cut(d[[risk.col]], breaks = q_breaks$brks, include.lowest = T))  # create a column with the risk quantiles as a number (e.g. from 1 to 5, if using quintiles)
   d[[paste0(output.col, "_q_name")]] =            cut(d[[risk.col]], breaks = q_breaks$brks, include.lowest = T)   # create a column with the risk quantiles as labels
+
+  d[[paste0(output.col, "_q")]] = (quants + 1) - d[[paste0(output.col, "_q")]]  # reverse the quantile scoring so 1 = highest risk
+
   d  # return the dataframe
 }
