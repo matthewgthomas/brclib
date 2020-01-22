@@ -9,6 +9,7 @@ add_risk_quantiles(
   risk.col,
   output.col = risk.col,
   quants = 5,
+  highest.number.is.worst = TRUE,
   style = "fisher",
   samp_prop = 1
 )
@@ -21,6 +22,8 @@ add_risk_quantiles(
 \item{output.col}{String specifying the name of the column to add (defaults to the same as risk.col)}
 
 \item{quants}{Number of quantiles (default: 5)}
+
+\item{highest.number.is.worst}{Should a risk score of 1 represent the highest number in the data (TRUE) or the lowest (FALSE)?}
 
 \item{style}{Method to use for calculating quantiles (passed to classIntervals; default: Fisher). One of "fixed", "sd", "equal", "pretty", "quantile", "kmeans", "hclust", "bclust", "fisher", "jenks" or "dpih"}
 
