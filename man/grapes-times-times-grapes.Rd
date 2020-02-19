@@ -2,7 +2,8 @@
 % Please edit documentation in R/helpers.R
 \name{\%**\%}
 \alias{\%**\%}
-\title{Multiply numbers only if at least one of them isn't zero}
+\title{Multiply numbers only if at least one of them isn't zero or NA
+If both numbers are zero or NA, return zero}
 \usage{
 x \%**\% y
 }
@@ -12,7 +13,8 @@ x \%**\% y
 \item{y}{Second number}
 }
 \description{
-Multiply numbers only if at least one of them isn't zero
+Multiply numbers only if at least one of them isn't zero or NA
+If both numbers are zero or NA, return zero
 }
 \examples{
 10 \%**\% 2 # == 20
