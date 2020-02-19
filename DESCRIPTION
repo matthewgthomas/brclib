@@ -24,5 +24,6 @@ Imports:
     rvest,
     Hmisc,
     janitor,
-    classInt
+    classInt,
+    sf
 RoxygenNote: 7.0.1
