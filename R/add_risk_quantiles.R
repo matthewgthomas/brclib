@@ -18,7 +18,7 @@ add_risk_quantiles = function(d, risk.col, output.col = risk.col, quants = 5, hi
   d[[paste0(output.col, "_q_name")]] =            cut(d[[risk.col]], breaks = q_breaks$brks, include.lowest = T)   # create a column with the risk quantiles as labels
 
   if (highest.number.is.worst) {
-    max_quant = max(d[[paste0(output.col, "_q")]])  # get the max. quantile in the dataset (won't always be equal to `quants`, e.g. if nrows(d) < quants)
+    max_quant = max(d[[paste0(output.col, "_q")]], na.rm = TRUE)  # get the max. quantile in the dataset (won't always be equal to `quants`, e.g. if nrows(d) < quants)
     d[[paste0(output.col, "_q")]] = (max_quant + 1) - d[[paste0(output.col, "_q")]]  # reverse the quantile scoring so 1 = highest risk
   }
 
