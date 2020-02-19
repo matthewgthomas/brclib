@@ -20,6 +20,7 @@ library(brclib)
 - `download_wales`: Download data from Stats Wales (https://statswales.gov.wales)
 - `get_brc_colours`: Get a list of British Red Cross colour hex codes
 - `get_nhs_colours`: Get a list of NHS colour hex codes
+- `get_LSOAs`: Get Lower Layer Super Output Areas and devolved nations' equivalents in a single spatial dataframe
 - `get_month_num`: Convert month name to the month's number
 - `lookup_islands_postcodes`: Lookup coordinates for UK postcodes that aren't in the ONS postcode directory (tends to be Guernsey, Jersey and Isle of Man), scraping them from https://checkmypostcode.uk/ where necessary
 - `load_postcodes`: Load BRC's bespoke postcode directory **(note the function to create this file hasn't been implemented in the package yet)**
