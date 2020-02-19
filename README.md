@@ -22,8 +22,9 @@ library(brclib)
 - `get_nhs_colours`: Get a list of NHS colour hex codes
 - `get_LSOAs`: Get Lower Layer Super Output Areas and devolved nations' equivalents in a single spatial dataframe
 - `get_month_num`: Convert month name to the month's number
-- `lookup_islands_postcodes`: Lookup coordinates for UK postcodes that aren't in the ONS postcode directory (tends to be Guernsey, Jersey and Isle of Man), scraping them from https://checkmypostcode.uk/ where necessary
+- `load_IMD`: Load latest Index of Multiple Deprivation data for whole UK
 - `load_postcodes`: Load BRC's bespoke postcode directory **(note the function to create this file hasn't been implemented in the package yet)**
+- `lookup_islands_postcodes`: Lookup coordinates for UK postcodes that aren't in the ONS postcode directory (tends to be Guernsey, Jersey and Isle of Man), scraping them from https://checkmypostcode.uk/ where necessary
 - `postcode_regex`: Regular expression to match postcodes (allowing lowercase and unlimited spaces)
 - `process_CRVs`: Clean and process Community Reserve Volunteers data
 - `read_excel_entirely`: Load all worksheets in an Excel file into a single dataframe
