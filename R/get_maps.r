@@ -36,8 +36,6 @@ get_LSOAs = function(url_eng_wal = "https://opendata.arcgis.com/datasets/007577e
   lsoa_sco = sf::st_transform(lsoa_sco, crs = 4326)
   lsoa_ni  = sf::st_transform(lsoa_ni,  crs = 4326)
 
-  sf::write_sf(lsoa, "C:\\Users\\040026704\\Documents\\Data science\\Projects\\Community presence map\\src\\community-map\\data_preparation\\lsoa.shp")
-
   # stitch into one shapefile and return
   lsoa = rbind(lsoa_ew, lsoa_sco, lsoa_ni)
   lsoa
