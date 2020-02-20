@@ -13,7 +13,7 @@ get_LSOAs(
  
     url_sco = "http://sedsh127.sedsh.gov.uk/Atom_data/ScotGov/ZippedShapefiles/SG_DataZoneBdry_2011.zip",
  
-    url_ni = "https://cc-p-ni.ckan.io/dataset/678697e1-ae71-41f3-abba-0ef5f3f352c2/resource/80392e82-8bee-42de-a1e3-82d1cbaa983f/download/soa2001.json"
+    url_ni = "https://www.nisra.gov.uk/sites/nisra.gov.uk/files/publications/SOA2011_Esri_Shapefile_0.zip"
 )
 }
 \arguments{
@@ -21,7 +21,7 @@ get_LSOAs(
 
 \item{url_sco}{Boundaries for Scotland (Shapefile)}
 
-\item{url_ni}{Boundaries for Northern Ireland (GeoJSON)}
+\item{url_ni}{Boundaries for Northern Ireland (Shapefile)}
 }
 \description{
 Get Lower Layer Super Output Areas and devolved nations' equivalents

@@ -10,24 +10,21 @@
 #'
 #' @param url_eng_wal Boundaries for England and Wales (GeoJSON from ONS Geoportal)
 #' @param url_sco Boundaries for Scotland (Shapefile)
-#' @param url_ni Boundaries for Northern Ireland (GeoJSON)
+#' @param url_ni Boundaries for Northern Ireland (Shapefile)
 #'
 #' @importFrom magrittr "%>%"
 #' @export
 #'
 get_LSOAs = function(url_eng_wal = "https://opendata.arcgis.com/datasets/007577eeb8e34c62a1844df090a93128_0.geojson",
                      url_sco = "http://sedsh127.sedsh.gov.uk/Atom_data/ScotGov/ZippedShapefiles/SG_DataZoneBdry_2011.zip",
-                     url_ni = "https://cc-p-ni.ckan.io/dataset/678697e1-ae71-41f3-abba-0ef5f3f352c2/resource/80392e82-8bee-42de-a1e3-82d1cbaa983f/download/soa2001.json") {
+                     url_ni = "https://www.nisra.gov.uk/sites/nisra.gov.uk/files/publications/SOA2011_Esri_Shapefile_0.zip") {
 
-  # load geojsons
+  # load geojson for England/Wales
   lsoa_ew  = sf::read_sf(url_eng_wal)
-  lsoa_ni  = sf::read_sf(url_ni)
 
-  # download, unzip and load Scotland shapefiles
-  httr::GET(url_sco, httr::write_disk(tf <- tempfile(fileext = ".zip")))
-  td = tempdir()  # somewhere temporary to stored the unzipped files
-  unzipped_files = unzip(tf, exdir = td)  # unzip to the temp folder
-  lsoa_sco = sf::read_sf( unzipped_files[grep(pattern = "*.shp$", unzipped_files)] )  # open the file whose extension is .shp
+  # download, unzip and load Scotland shapefiles for Scotland and NI
+  lsoa_sco = download_shp(url_sco)
+  lsoa_ni =  download_shp(url_ni)
 
   # sanitise variable names
   lsoa_ew =  lsoa_ew  %>% dplyr::select(Code = LSOA11CD, Name = LSOA11NM)
@@ -39,7 +36,38 @@ get_LSOAs = function(url_eng_wal = "https://opendata.arcgis.com/datasets/007577e
   lsoa_sco = sf::st_transform(lsoa_sco, crs = 4326)
   lsoa_ni  = sf::st_transform(lsoa_ni,  crs = 4326)
 
+  sf::write_sf(lsoa, "C:\\Users\\040026704\\Documents\\Data science\\Projects\\Community presence map\\src\\community-map\\data_preparation\\lsoa.shp")
+
   # stitch into one shapefile and return
   lsoa = rbind(lsoa_ew, lsoa_sco, lsoa_ni)
   lsoa
+}
+
+#' Middle-layer super output areas (and devolved nations' equivalents) shapefiles for
+#' [England and Wales](https://geoportal.statistics.gov.uk/datasets/middle-layer-super-output-areas-december-2011-boundaries-ew-bsc)
+#' [Scotland](https://www.spatialdata.gov.scot/geonetwork/srv/api/records/389787c0-697d-4824-9ca9-9ce8cb79d6f5)
+#'  [Northern Ireland](https://www.nisra.gov.uk/publications/super-output-area-boundaries-gis-format)
+get_MSOAs = function() {
+
+}
+
+#' Download and load shapefiles from the web
+#' - download .zip into a temp file
+#' - unzip into a temp folder
+#' - open and return as an `sf` object
+#'
+#' @param url URL to the .zip file containing shapefiles
+#' @export
+#'
+download_shp = function(url) {
+  httr::GET(url, httr::write_disk(tf <- tempfile(fileext = ".zip")))  # download .zip file from `url` to a temp file
+
+  td = tempdir()  # somewhere temporary to stored the unzipped files
+  unzipped_files = unzip(tf, exdir = td)  # unzip to the temp folder
+
+  shp = sf::read_sf( unzipped_files[grep(pattern = "*.shp$", unzipped_files)] )  # open the file whose extension is .shp
+
+  # get rid of the temp file/folder and return the spatial object
+  unlink(tf); unlink(td)
+  shp
 }

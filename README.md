@@ -17,6 +17,7 @@ library(brclib)
 - `convert_date`: Convert dates if they're in Excel (numeric) format
 - `create_lookup_lsoa_lad_county`: Create lookup table for Lower Layer Super Output Areas to Local Authorities to Counties
 - `create_lookup_msoa_lad_county`: Create lookup table for Middle Layer Super Output Areas to Local Authorities to Counties
+- `download_shp`: Download and load shapefiles from the web
 - `download_wales`: Download data from Stats Wales (https://statswales.gov.wales)
 - `get_brc_colours`: Get a list of British Red Cross colour hex codes
 - `get_nhs_colours`: Get a list of NHS colour hex codes
